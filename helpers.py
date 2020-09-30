@@ -1,11 +1,12 @@
 import csv
 import os
+import re
 
 import sqlalchemy
 from datapackage import Package
 
 
-def table_to_csv(engine: sqlalchemy.engine.base.Engine, table_name: str, file_path: str):
+def _table_to_csv(engine: sqlalchemy.engine.base.Engine, table_name: str, file_path: str):
     with open(file_path, 'w') as fh:
         outcsv = csv.writer(fh)
 
@@ -13,6 +14,12 @@ def table_to_csv(engine: sqlalchemy.engine.base.Engine, table_name: str, file_pa
             records = con.execute(f"SELECT * FROM {table_name}")
             outcsv.writerow(records.keys())
             outcsv.writerows(records)
+
+
+def natural_sort(l):
+    convert = lambda text: int(text) if text.isdigit() else text.lower()
+    alphanum_key = lambda key: [ convert(c) for c in re.split('([0-9]+)', key) ]
+    return sorted(l, key = alphanum_key)
 
 
 def sqlpackage_to_disk(package: Package, output_path: str):
@@ -25,7 +32,7 @@ def sqlpackage_to_disk(package: Package, output_path: str):
         engine = resource._Resource__storage._Storage__connection.engine
         table_name = resource.source
 
-        table_to_csv(engine, table_name, os.path.join(output_path, f"{table_name}.csv"))
+        _table_to_csv(engine, table_name, os.path.join(output_path, f"{table_name}.csv"))
 
     # 3. Generate a descriptor
     output_package = Package()

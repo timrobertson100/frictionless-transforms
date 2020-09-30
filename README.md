@@ -29,6 +29,10 @@ For example with the included sample data:
 
 ## (POC) development notes  
 
+### TODO
+- Second script to execute the first step (load into SQLite) only?
+- pre/post process steps using Python (optional Pandas?)
+
 ### Current issues
 - The database -> datapackage step is a quick and dirty hack:
     - extra files (not data nor datapackage.json) are lost in the process
@@ -61,6 +65,7 @@ transformation function?)
     - meaningful warning/error messages.
     - should the data transformation code (SQL at first) be also able to emit its own warning and errors? 
     How to capture those?
+- Use Docker for easier execution? (end-users not familiar with Python)
 
 ### Configuration
 

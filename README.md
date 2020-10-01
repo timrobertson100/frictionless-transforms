@@ -30,14 +30,7 @@ For example with the included sample data:
 ## (POC) development notes  
 
 ### TODO
-- Second script to execute the first step (load into SQLite) only?
 - pre/post process steps using Python (optional Pandas?)
-
-### Current issues
-- The database -> datapackage step is a quick and dirty hack:
-    - extra files (not data nor datapackage.json) are lost in the process
-    - what about performance for large files?
-    - are foreign keys kept?
 
 ### Lessons learned
 - Thanks to the frictionless ecosystem, it's straightforward to load a tabular data package into SQLite (and to 

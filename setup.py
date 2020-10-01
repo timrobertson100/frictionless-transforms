@@ -13,5 +13,6 @@ setup(
     entry_points='''
         [console_scripts]
         ft=ft:cli
+        f2sqlite=f2sqlite:cli
     ''',
 )

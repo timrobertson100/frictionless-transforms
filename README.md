@@ -15,6 +15,7 @@ Clone the repository, create a Python virtual environment, then install the pack
     
 ## How to use 
 
+### Whole pipeline
 To run the pipeline, you'll need:
 
 - an input package (to be transformed)
@@ -26,6 +27,10 @@ To run the pipeline, you'll need:
 For example with the included sample data:
     
     $ ft ./sample_input_packages/periodic-table/datapackage.json sample_transform_dir ./output_package
+
+### Data package to sqlite conversion script
+
+    $ f2sqlite ./sample_input_packages/periodic-table/datapackage.json periodic-table.sqlite3
 
 ## (POC) development notes  
 

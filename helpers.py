@@ -40,11 +40,16 @@ def sqlpackage_to_disk(package: Package, output_path: str):
     output_package.save(os.path.join(output_path, "datapackage.json"))
 
 
-def package_to_sqlite(package: Package) -> sqlalchemy.engine.base.Engine:
-    """Get a package (freshly loaded from disk) and store it in a in-memory SQLite instance
+# TODO: This function should also work with other database engines. Test and document!
+def package_to_sqlite(package: Package, connect_string='sqlite://') -> sqlalchemy.engine.base.Engine:
+    """Get a package (freshly loaded from disk) and store it in a SQLite instance
 
-    The SQLAlchemy engine is returned
+    :param package: the data package to import
+    :param connect_string: the connection string (will be passed to sqlalchemy.create_engine). the default value will
+    create an in-memory SQLite database.
+
+    :return: the SQLAlchemy engine
     """
-    engine = sqlalchemy.create_engine('sqlite://')  # We currently create db in memory. Make that configurable?
+    engine = sqlalchemy.create_engine(connect_string)
     package.save(storage='sql', engine=engine)
     return engine

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+docker run --rm -it -v $(pwd)/mnt:/usr/src/app/mnt ft /usr/src/app/"$1" /usr/src/app/"$2" /usr/src/app/"$3"

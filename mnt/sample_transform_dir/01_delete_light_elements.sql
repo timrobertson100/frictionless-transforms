@@ -1,0 +1,1 @@
+DELETE FROM data WHERE "atomic mass" < 10;

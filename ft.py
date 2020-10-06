@@ -37,7 +37,7 @@ def cli(input_package_path: str, transform_dir_path: str, output_package_path: s
             click.echo(f"Processing transformation: {transformation_file}")
             con.execute(Path(transformation_file).read_text())
 
-    click.echo("Saving the transformed data...")
+    click.echo(f"Saving the transformed data to {output_package_path}...")
     package_from_sql = Package(storage='sql', engine=engine)
     sqlpackage_to_disk(package_from_sql, output_package_path)
 

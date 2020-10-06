@@ -7,6 +7,17 @@ Initial design objective:
   - Ability to use different transforms
   - Runable on "laptop scale" data (v1) 
 
+## Run in Docker
+
+Build the `ft` the Docker image (to be done only once after each code change):
+
+    $  docker build -t ft .
+    
+Then run it (only the local `mnt` subdirectory is accessible to the Docker container):
+
+    $ ./ft-docker mnt/sample_input_packages/periodic-table/datapackage.json mnt/sample_transform_dir mnt/output_package
+
+
 ## POC Installation
 
 Clone the repository, create a Python virtual environment, then install the package:

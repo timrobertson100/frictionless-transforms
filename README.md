@@ -5,18 +5,11 @@ Initial design objective:
   - A simple framework that allows a transformation to be applied to reshape a Frictionless data package. 
   - Attention to detail on documentation
   - Ability to use different transforms
-  - Runable on "laptop scale" data (v1) 
-
-## Run in Docker
-
-Build the `ft` the Docker image (to be done only once after each code change):
-
-    $  docker build -t ft .
-    
-Then run it (only the local `mnt` subdirectory is accessible to the Docker container):
-
-    $ ./ft-docker mnt/sample_input_packages/periodic-table/datapackage.json mnt/sample_transform_dir mnt/output_package
-
+  - Runnable on "laptop scale" data (v1) 
+  
+It currently consists of two scripts:
+    - `ft`
+    - `f2sqlite` 
 
 ## POC Installation
 
@@ -32,7 +25,6 @@ To run the pipeline, you'll need:
 - an input package (to be transformed)
 - a transformation directory (contains the transformation scripts)
 
-
     $ ft <input_package_path> <transform_dir_path> <output_package_path>
     
 For example with the included sample data:
@@ -43,10 +35,27 @@ For example with the included sample data:
 
     $ f2sqlite ./sample_input_packages/periodic-table/datapackage.json periodic-table.sqlite3
 
-## (POC) development notes  
+## Run in Docker
 
-### TODO
-- pre/post process steps using Python (optional Pandas?)
+The `ft` script can also be run in Docker if you don't have a Python ecosystem available:
+
+- First, clone this repository
+- Then, build the `ft` the Docker image (to be done only once after each code change):
+
+
+    $  docker build -t ft .
+- You can then run it (only the local `mnt` subdirectory is accessible to the Docker container). A small bash script is 
+provided to make things simpler: 
+
+
+    $ ./ft-docker mnt/sample_input_packages/periodic-table/datapackage.json mnt/sample_transform_dir mnt/output_package
+    
+If this bash script don't work for you (e.g. on Windows), you'll have to use a longer command:
+
+    $ docker run --rm -it -v %cd%/mnt:/usr/src/app/mnt ft /usr/src/app/mnt/sample_input_packages/periodic-table/datapackage.json /usr/src/app/mnt/sample_transform_dir /usr/src/app/mnt/output-package    
+
+
+## Development notes  
 
 ### Lessons learned
 - Thanks to the frictionless ecosystem, it's straightforward to load a tabular data package into SQLite (and to 
@@ -74,25 +83,6 @@ transformation function?)
     - meaningful warning/error messages.
     - should the data transformation code (SQL at first) be also able to emit its own warning and errors? 
     How to capture those?
-- Use Docker for easier execution? (end-users not familiar with Python)
-
-### Configuration
-
-- Idea: make it configurable if needed, but let's provide sensible default so it can be run with just
-    - input (file/directory)
-    - transformation (file/directory)
-    - output (file/directory)
-    
-### Dependencies and requirements
-
-I'd like to keep this as limited as possible, for maintenance and ease of installation reasons:
-
-- Python 3.8+
-- click to create the CLI
-- https://github.com/frictionlessdata/datapackage-pipelines-sql-driver for the SQL data transformation
-
-Note: the official frictionless packages (datapackage, tableschema-sql, ...) seems to have themselves tons of 
-dependencies...
 
 ### Testing
 

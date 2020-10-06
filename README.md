@@ -1,44 +1,56 @@
 # frictionless-transforms
+
 A scratch area for collaborating on Frictionless data transforms.
 
-Initial design objective: 
-  - A simple framework that allows a transformation to be applied to reshape a Frictionless data package. 
-  - Attention to detail on documentation
-  - Ability to use different transforms
-  - Runable on "laptop scale" data (v1) 
+Initial design objective:
 
-## POC Installation
+- A simple framework that allows a transformation to be applied to reshape a Frictionless data package. 
+- Attention to detail on documentation
+- Ability to use different transforms
+- Runable on "laptop scale" data (v1) 
+
+## Installation
 
 Clone the repository, create a Python virtual environment, then install the package:
 
-    $ pip install --editable . 
-    
+```
+$ pip install --editable . 
+```
+
 ## How to use 
 
 ### Whole pipeline
+
 To run the pipeline, you'll need:
 
 - an input package (to be transformed)
 - a transformation directory (contains the transformation scripts)
 
-
-    $ ft <input_package_path> <transform_dir_path> <output_package_path>
+```
+$ ft <input_package_path> <transform_dir_path> <output_package_path>
+```
     
 For example with the included sample data:
 
-    $ cd datasets/periodic_table
-    $ ft data/raw/datapackage.json transforms data/processed/
+```
+$ cd datasets/periodic_table
+$ ft data/raw/datapackage.json transforms data/processed/
+```
 
 ### Data package to sqlite conversion script
 
-    $ f2sqlite data/raw/datapackage.json data/interim/periodic_table.sqlite3
+```
+$ f2sqlite data/raw/datapackage.json data/interim/periodic_table.sqlite3
+```
 
-## (POC) development notes  
+## Development notes  
 
 ### TODO
+
 - pre/post process steps using Python (optional Pandas?)
 
 ### Lessons learned
+
 - Thanks to the frictionless ecosystem, it's straightforward to load a tabular data package into SQLite (and to 
 apply transformations there). It seems less straightforward for the last step (get data back from SQLite) to a 
 self-contained data package. Possible approaches:
@@ -52,6 +64,7 @@ work for us?
 but it currently appears under heavy development (not much documentation, changing API, not yet battle-tested, ...)
     
 ### Pending questions (move to GitHub issues)
+
 - intermediate (for data transformation/reshape) format ? **SQLite** for the first POC. **PostgreSQL** might be more 
 scalable and available "for free" thanks to https://github.com/frictionlessdata/datapackage-pipelines-sql-driver 
 (which relies on SQLAlchemy). A **Python/Pandas** transformation feature can be easily implemented: no data 

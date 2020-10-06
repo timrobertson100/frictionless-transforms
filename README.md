@@ -25,12 +25,13 @@ To run the pipeline, you'll need:
     $ ft <input_package_path> <transform_dir_path> <output_package_path>
     
 For example with the included sample data:
-    
-    $ ft ./sample_input_packages/periodic-table/datapackage.json sample_transform_dir ./output_package
+
+    $ cd datasets/periodic_table
+    $ ft data/raw/datapackage.json transforms data/processed/
 
 ### Data package to sqlite conversion script
 
-    $ f2sqlite ./sample_input_packages/periodic-table/datapackage.json periodic-table.sqlite3
+    $ f2sqlite data/raw/datapackage.json data/interim/periodic_table.sqlite3
 
 ## (POC) development notes  
 

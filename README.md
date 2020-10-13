@@ -37,20 +37,21 @@ For example with the included sample data:
 
 ## Run in Docker
 
-The `ft` script can also be run in Docker if you don't have a Python ecosystem available:
+The `ft` and `f2sqlite` scripts can also be run in Docker if you don't have a Python ecosystem available:
 
 - First, clone this repository
 - Then, build the `ft` the Docker image (to be done only once after each code change):
 
 
     $  docker build -t ft .
-- You can then run it (only the local `mnt` subdirectory is accessible to the Docker container). A small bash script is 
+- You can then run the scripts (only the local `mnt` subdirectory is accessible to the Docker container). Small bash scripts are 
 provided to make things simpler: 
 
 
     $ ./ft-docker mnt/sample_input_packages/periodic-table/datapackage.json mnt/sample_transform_dir mnt/output_package
+    $ ./f2sqlite-docker sample_input_packages/periodic-table/datapackage.json mnt/mydb.sqlite3
     
-If this bash script don't work for you (e.g. on Windows), you'll have to use a longer command:
+If the bash scripts don't work for you (e.g. on Windows), you'll have to use longer commands:
 
     $ docker run --rm -it -v %cd%/mnt:/usr/src/app/mnt ft /usr/src/app/mnt/sample_input_packages/periodic-table/datapackage.json /usr/src/app/mnt/sample_transform_dir /usr/src/app/mnt/output-package    
 

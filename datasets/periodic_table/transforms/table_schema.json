@@ -1,0 +1,49 @@
+{
+  "title": "Periodic table community schema",
+  "fields": [
+    {
+      "name": "atomic number",
+      "type": "integer",
+      "format": "default",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
+    },
+    {
+      "name": "symbol",
+      "type": "string",
+      "format": "default",
+      "constraints": {
+        "required": "true",
+        "unique": "true"
+      }
+    },
+    {
+      "name": "name",
+      "type": "string",
+      "format": "default"
+    },
+    {
+      "name": "atomic mass",
+      "type": "number",
+      "format": "default"
+    },
+    {
+      "name": "group",
+      "type": "string",
+      "format": "default"
+    },
+    {
+      "name": "metal or nonmetal?",
+      "type": "string",
+      "format": "default"
+    },
+    {
+      "name": "appearance",
+      "type": "string",
+      "format": "default"
+    }
+  ],
+  "primaryKey": "atomic number"
+}

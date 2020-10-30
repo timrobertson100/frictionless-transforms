@@ -11,6 +11,7 @@ from datapackage import Package
 from helpers import package_to_sqlite, sqlpackage_to_disk, natural_sort
 
 PREPROCESSING_MODULE = "preprocessing"
+POSTPROCESSING_MODULE = "postprocessing"
 
 @click.command()
 @click.argument('input_package_path', type=click.Path(exists=True))  # TODO: accept URL in addition to local directory?
@@ -37,7 +38,14 @@ def cli(input_package_path: str, transform_dir_path: str, output_package_path: s
             click.echo(f"Processing transformation: {transformation_file}")
             con.execute(Path(transformation_file).read_text())
 
-    click.echo("Saving the transformed data...")
+        try:
+            postprocessing = importlib.import_module(f"{transform_dir_path}.{POSTPROCESSING_MODULE}")
+            click.echo("Data postprocessing...")
+            postprocessing.postprocess_database(con)
+        except ModuleNotFoundError:
+            click.echo("No postprocessing module found, skipping")
+
+    click.echo(f"Saving the transformed data to {output_package_path}...")
     package_from_sql = Package(storage='sql', engine=engine)
     sqlpackage_to_disk(package_from_sql, output_package_path)
 

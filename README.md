@@ -27,6 +27,11 @@ To run the pipeline, you'll need:
 For example with the included sample data:
     
     $ ft ./sample_input_packages/periodic-table/datapackage.json sample_transform_dir ./output_package
+    
+The transformation directory may contains:
+
+- multiple numbered (execution order) SQL scripts, with a .sql extension
+- a `postprocessing.py` file that must implement a single function: `postprocess_database(connection)`
 
 ### Data package to sqlite conversion script
 

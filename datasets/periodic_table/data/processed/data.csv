@@ -1,0 +1,115 @@
+atomic number,symbol,name,atomic mass,metal or nonmetal?
+5,B,BORON,10.811,metalloid
+6,C,CARBON,12.0107,nonmetal
+7,N,NITROGEN,14.0067,nonmetal
+8,O,OXYGEN,15.9994,nonmetal
+9,F,FLUORINE,18.9984032,halogen
+10,Ne,NEON,20.1797,noble gas
+11,Na,SODIUM,22.98976928,alkali metal
+12,Mg,MAGNESIUM,24.305,alkaline earth metal
+13,Al,ALUMINUM,26.9815386,metal
+14,Si,SILICON,28.0855,metalloid
+15,P,PHOSPHORUS,30.973762,nonmetal
+16,S,SULFUR,32.065,nonmetal
+17,Cl,CHLORINE,35.453,halogen
+18,Ar,ARGON,39.948,noble gas
+19,K,POTASSIUM,39.0983,alkali metal
+20,Ca,CALCIUM,40.078,alkaline earth metal
+21,Sc,SCANDIUM,44.955912,transition metal
+22,Ti,TITANIUM,47.867,transition metal
+23,V,VANADIUM,50.9415,transition metal
+24,Cr,CHROMIUM,51.9961,transition metal
+25,Mn,MANGANESE,54.938045,transition metal
+26,Fe,IRON,55.845,transition metal
+27,Co,COBALT,58.933195,transition metal
+28,Ni,NICKEL,58.6934,transition metal
+29,Cu,COPPER,63.546,transition metal
+30,Zn,ZINC,65.38,transition metal
+31,Ga,GALLIUM,69.723,metal
+32,Ge,GERMANIUM,72.64,metalloid
+33,As,ARSENIC,74.9216,metalloid
+34,Se,SELENIUM,78.96,nonmetal
+35,Br,BROMINE,79.904,halogen
+36,Kr,KRYPTON,83.798,noble gas
+37,Rb,RUBIDIUM,85.4678,alkali metal
+38,Sr,STRONTIUM,87.62,alkaline earth metal
+39,Y,YTTRIUM,88.90585,transition metal
+40,Zr,ZIRCONIUM,91.224,transition metal
+41,Nb,NIOBIUM,92.90638,transition metal
+42,Mo,MOLYBDENUM,95.96,transition metal
+43,Tc,TECHNETIUM,98.0,transition metal
+44,Ru,RUTHENIUM,101.07,transition metal
+45,Rh,RHODIUM,102.9055,transition metal
+46,Pd,PALLADIUM,106.42,transition metal
+47,Ag,SILVER,107.8682,transition metal
+48,Cd,CADMIUM,112.411,transition metal
+49,In,INDIUM,114.818,metal
+50,Sn,TIN,118.71,metal
+51,Sb,ANTIMONY,121.76,metalloid
+52,Te,TELLURIUM,127.6,metalloid
+53,I,IODINE,126.90447,halogen
+54,Xe,XENON,131.293,noble gas
+55,Cs,CESIUM,132.9054519,alkali metal
+56,Ba,BARIUM,137.327,alkaline earth metal
+57,La,LANTHANUM,138.90547,lanthanoid
+58,Ce,CERIUM,140.116,lanthanoid
+59,Pr,PRASEODYMIUM,140.90765,lanthanoid
+60,Nd,NEODYMIUM,144.242,lanthanoid
+61,Pm,PROMETHIUM,145.0,lanthanoid
+62,Sm,SAMARIUM,150.36,lanthanoid
+63,Eu,EUROPIUM,151.964,lanthanoid
+64,Gd,GADOLINIUM,157.25,lanthanoid
+65,Tb,TERBIUM,158.92535,lanthanoid
+66,Dy,DYSPROSIUM,162.5,lanthanoid
+67,Ho,HOLMIUM,164.93032,lanthanoid
+68,Er,ERBIUM,167.259,lanthanoid
+69,Tm,THULIUM,168.93421,lanthanoid
+70,Yb,YTTERBIUM,173.054,lanthanoid
+71,Lu,LUTETIUM,174.9668,transition metal
+72,Hf,HAFNIUM,178.49,transition metal
+73,Ta,TANTALUM,180.94788,transition metal
+74,W,TUNGSTEN,183.84,transition metal
+75,Re,RHENIUM,186.207,transition metal
+76,Os,OSMIUM,190.23,transition metal
+77,Ir,IRIDIUM,192.217,transition metal
+78,Pt,PLATINUM,195.084,transition metal
+79,Au,GOLD,196.966569,transition metal
+80,Hg,MERCURY,200.59,transition metal
+81,Tl,THALLIUM,204.3833,metal
+82,Pb,LEAD,207.2,metal
+83,Bi,BISMUTH,208.9804,metal
+84,Po,POLONIUM,209.0,metalloid
+85,At,ASTATINE,210.0,halogen
+86,Rn,RADON,222.0,noble gas
+87,Fr,FRANCIUM,223.0,alkali metal
+88,Ra,RADIUM,226.0,alkaline earth metal
+89,Ac,ACTINIUM,227.0,actinoid
+90,Th,THORIUM,232.03806,actinoid
+91,Pa,PROTACTINIUM,231.03588,actinoid
+92,U,URANIUM,238.02891,actinoid
+93,Np,NEPTUNIUM,237.0,actinoid
+94,Pu,PLUTONIUM,244.0,actinoid
+95,Am,AMERICIUM,243.0,actinoid
+96,Cm,CURIUM,247.0,actinoid
+97,Bk,BERKELIUM,247.0,actinoid
+98,Cf,CALIFORNIUM,251.0,actinoid
+99,Es,EINSTEINIUM,252.0,actinoid
+100,Fm,FERMIUM,257.0,actinoid
+101,Md,MENDELEVIUM,258.0,actinoid
+102,No,NOBELIUM,259.0,actinoid
+103,Lr,LAWRENCIUM,262.0,transition metal
+104,Rf,RUTHERFORDIUM,267.0,transition metal
+105,Db,DUBNIUM,268.0,transition metal
+106,Sg,SEABORGIUM,271.0,transition metal
+107,Bh,BOHRIUM,272.0,transition metal
+108,Hs,HASSIUM,270.0,transition metal
+109,Mt,MEITNERIUM,276.0,transition metal
+110,Ds,DARMSTADTIUM,281.0,transition metal
+111,Rg,ROENTGENIUM,280.0,transition metal
+112,Cn,COPERNICIUM,285.0,transition metal
+113,Uut,UNUNTRIUM,284.0,metal
+114,Uuq,UNUNQUADIUM,289.0,metal
+115,Uup,UNUNPENTIUM,288.0,halogen
+116,Uuh,UNUNHEXIUM,293.0,noble gas
+117,Uus,UNUNSEPTIUM,294.0,alkali metal
+118,Uuo,UNUNOCTIUM,294.0,alkaline earth metal

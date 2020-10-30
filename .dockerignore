@@ -1,0 +1,3 @@
+.git/
+venv/
+frictionless_transforms.egg-info/

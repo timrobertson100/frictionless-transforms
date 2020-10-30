@@ -7,8 +7,12 @@ Initial design objective:
 - A simple framework that allows a transformation to be applied to reshape a Frictionless data package. 
 - Attention to detail on documentation
 - Ability to use different transforms
-- Runable on "laptop scale" data (v1) 
+- Runnable on "laptop scale" data (v1) 
 
+It currently consists of two scripts:
+    - `ft`
+    - `f2sqlite`
+    
 ## Installation
 
 Clone the repository, create a Python virtual environment, then install the package:
@@ -48,11 +52,28 @@ The transformation directory may contains:
 $ f2sqlite data/raw/datapackage.json data/interim/periodic_table.sqlite3
 ```
 
+## Run in Docker
+
+The `ft` and `f2sqlite` scripts can also be run in Docker if you don't have a Python ecosystem available:
+
+- First, clone this repository
+- Then, build the `ft` the Docker image (to be done only once after each code change):
+
+
+    $  docker build -t ft .
+- You can then run the scripts (only the local `mnt` subdirectory is accessible to the Docker container). Small bash scripts are 
+provided to make things simpler: 
+
+
+    $ ./ft-docker mnt/sample_input_packages/periodic-table/datapackage.json mnt/sample_transform_dir mnt/output_package
+    $ ./f2sqlite-docker sample_input_packages/periodic-table/datapackage.json mnt/mydb.sqlite3
+    
+If the bash scripts don't work for you (e.g. on Windows), you'll have to use longer commands:
+
+    $ docker run --rm -it -v %cd%/mnt:/usr/src/app/mnt ft /usr/src/app/mnt/sample_input_packages/periodic-table/datapackage.json /usr/src/app/mnt/sample_transform_dir /usr/src/app/mnt/output-package    
+
+
 ## Development notes  
-
-### TODO
-
-- pre/post process steps using Python (optional Pandas?)
 
 ### Lessons learned
 
@@ -82,25 +103,6 @@ transformation function?)
     - meaningful warning/error messages.
     - should the data transformation code (SQL at first) be also able to emit its own warning and errors? 
     How to capture those?
-- Use Docker for easier execution? (end-users not familiar with Python)
-
-### Configuration
-
-- Idea: make it configurable if needed, but let's provide sensible default so it can be run with just
-    - input (file/directory)
-    - transformation (file/directory)
-    - output (file/directory)
-    
-### Dependencies and requirements
-
-I'd like to keep this as limited as possible, for maintenance and ease of installation reasons:
-
-- Python 3.8+
-- click to create the CLI
-- https://github.com/frictionlessdata/datapackage-pipelines-sql-driver for the SQL data transformation
-
-Note: the official frictionless packages (datapackage, tableschema-sql, ...) seems to have themselves tons of 
-dependencies...
 
 ### Testing
 

@@ -130,3 +130,7 @@ dmypy.json
 
 # Mac OS X
 .DS_Store
+
+mnt/output_package
+.idea
+output_package/

@@ -10,8 +10,9 @@ Initial design objective:
 - Runnable on "laptop scale" data (v1) 
 
 It currently consists of two scripts:
-    - `ft`
-    - `f2sqlite`
+
+- `ft`
+- `f2sqlite`
     
 ## Installation
 
@@ -23,7 +24,7 @@ $ pip install --editable .
 
 ## How to use 
 
-### Whole pipeline
+### ft: Whole pipeline
 
 To run the pipeline, you'll need:
 
@@ -46,7 +47,7 @@ The transformation directory may contains:
 - multiple numbered (execution order) SQL scripts, with a .sql extension
 - a `postprocessing.py` file that must implement a single function: `postprocess_database(connection)`
 
-### Data package to sqlite conversion script
+### f2sqlite: Data package to sqlite conversion script
 
 ```
 $ f2sqlite data/raw/datapackage.json data/interim/periodic_table.sqlite3
